@@ -22,3 +22,6 @@ node_modules/
 
 # Ignore compiled Python files
 *.pyc
+
+
+venv/
