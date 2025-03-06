@@ -1,0 +1,23 @@
+services:
+  backend:
+    build:
+      context: .  # Use the current directory as the context
+      dockerfile: Dockerfile.backend  # Specify the backend Dockerfile
+    volumes:
+      - ./backend:/app/backend  # Mount the backend directory to the container
+    ports:
+      - "5000:5000"
+    environment:
+      - FLASK_APP=backend.app  # Set the FLASK_APP to backend.app
+      - FLASK_ENV=production
+    env_file:
+      - .env  
+
+  frontend:
+    build:
+      context: .  # Use the current directory as the context
+      dockerfile: Dockerfile.frontend  # Specify the frontend Dockerfile
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./frontend:/app/frontend  # Mount the frontend directory to the container
